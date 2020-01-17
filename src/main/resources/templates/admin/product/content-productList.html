@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">商品列表</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">商品</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content" id="vue-main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">列表</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th style="width: 10px">ID</th>
+                                    <th>品名</th>
+                                    <th>售價</th>
+                                    <th>優惠價</th>
+                                    <th>單位</th>
+                                    <th>賞味期限</th>
+                                    <th>庫存數量</th>
+                                    <th>建檔時間</th>
+                                </tr>
+                                <tr v-for="item in dataList">
+                                    <td><a :href="'productEdit.html?id=' + item.id">{{ item.id }}</a></td>
+                                    <td>{{ item.productName }}</td>
+                                    <td>{{ item.salePrice }}</td>
+                                    <td>{{ item.discPrice }}</td>
+                                    <td>{{ item.basicUnitDesc }}</td>
+                                    <td>{{ item.expiryDate }}</td>
+                                    <td>{{ item.stockQuantity }}</td>
+                                    <td>{{ item.createdDate }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer clearfix">
+                            <ul class="pagination pagination-sm m-0 float-right">
+                                <li class="page-item"><a class="page-link" href="#" v-if=" page.number > 0" @click.prevent="jumpPage( -1 )">&laquo;</a></li>
+                                <li class="page-item"><a class="page-link" href="#" v-if=" page.number-1 > 0" @click.prevent="jumpPage( -2 )">{{ page.number-1 }}</a></li>
+                                <li class="page-item"><a class="page-link" href="#" v-if=" page.number > 0" @click.prevent="jumpPage( -1 )">{{ page.number }}</a></li>
+                                <li class="page-item"><a class="page-link bg-primary" href="#">{{ page.number+1 }}</a></li>
+                                <li class="page-item"><a class="page-link" href="#" v-if=" page.number+1 < page.totalPages" @click.prevent="jumpPage( 1 )">{{ page.number+2 }}</a></li>
+                                <li class="page-item"><a class="page-link" href="#" v-if=" page.number+2 < page.totalPages" @click.prevent="jumpPage( 2 )">{{ page.number+3 }}</a></li>
+                                <li class="page-item"><a class="page-link" href="#" v-if=" page.number+1 < page.totalPages" @click.prevent="jumpPage( 1 )">&raquo;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+<script>
+    var vueMainContent = new Vue({
+        el: '#vue-main-content',
+        data: {
+            dataList: [],
+            page: {
+                size: 10,
+                totalElements: 0,
+                totalPages: 0,
+                number: 0
+            },
+            sort: {
+                field: 'createdDate',
+                direction: 'desc'
+            },
+            links: {}
+        },
+        created: function () {
+            this.getData();
+        },
+        methods: {
+            jumpPage: function ( jumpPageCount ) {
+                var vueData = this;
+                vueData.page.number = vueData.page.number + jumpPageCount;
+                this.getData();
+            },
+            getData: function () {
+                var vueData = this;
+                var queryUri = '/products?page=' + vueData.page.number + '&size=' + vueData.page.size + '&sort=' + vueData.sort.field + ',' + vueData.sort.direction ;
+                axiosGet(
+                    queryUri ,
+                    function (response) {
+                        if (response.status == 200) {
+                            vueData.dataList = response.data._embedded.products;
+                            vueData.page = response.data.page;
+                            vueData.links = response.data._links;
+                        } else {
+                            console.log(response);
+                        }
+                    },
+                    function(response){
+                        alert('資料載入失敗');
+                    }
+                );
+
+                // axios.get('/products?page=' + vueData.page.number + '&size=' + vueData.page.size + '&sort=' + vueData.sort.field + ',' + vueData.sort.direction)
+                //     .then(function (response) {
+                //         if (response.status == 200) {
+                //             vueData.dataList = response.data._embedded.products;
+                //             vueData.page = response.data.page;
+                //             vueData.links = response.data._links;
+                //         } else {
+                //             console.log(response);
+                //         }
+                //     }).catch(function (error) {
+                //     console.log(error);
+                // });
+            }
+        }
+    });
+</script>
+</body>
+</html>

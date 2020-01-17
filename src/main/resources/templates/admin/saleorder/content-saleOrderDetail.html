@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">訂單明細</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">訂單</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content" id="vue-main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">明細</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form role="form">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="productName">開團名稱</label>
+                                        <input type="text" class="form-control" id="productName" placeholder="團購名稱"
+                                               v-model.trim="itemData.groupName">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sale_group_img_file_selector">團購圖上傳</label>
+                                        <button type="button" class="btn btn-primary" id="sale_group_img_file_selector">選擇檔案</button>
+                                        <input type="file" id="sale_group_img_file_elem" accept="image/*" style="display:none"
+                                               onchange="handleFiles(this.files, 'sale_group_img_file_preview' )">
+                                        <label for="sale_group_img_file_preview">已選擇的圖片</label>
+                                        <span id="sale_group_img_file_preview"></span>
+                                        <button type="button" class="btn btn-primary" @click="upload_sale_group_img">檔案上傳</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>團購圖</label>
+                                        <div class="card-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <td>{{ itemData.groupImgId }}</td>
+                                                    <td><img :src="itemData.groupImgResourceUrl" width="200px"></td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-block btn-outline-danger" @click="deleteProductImg">刪除
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="saleStartDate">銷售起始日</label>
+                                        <input type="datetime-local" class="form-control" id="saleStartDate" min="2019-06-01T08:30"
+                                               v-model.trim="itemData.saleStartDate">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="saleEndDate">銷售結束日</label>
+                                        <input type="datetime-local" class="form-control" id="saleEndDate" min="2019-06-01T08:30"
+                                               v-model.trim="itemData.saleEndDate">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="saleStatus">銷售狀態</label>
+                                        <select class="form-control" id="saleStatus" v-model="itemData.saleStatus">
+                                            <option value="1">啟用</option>
+                                            <option value="0">停用</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="productSearchKeyword">搜尋商品</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="productSearchKeyword" v-model.trim="productSearchKeyword">
+                                            <span class="input-group-append"><button type="button" class="btn btn-info btn-flat" @click="productSearch">Go!</button></span>
+                                            <span class="input-group-append"><button type="button" class="btn bg-light btn-flat" @click="productSearchClear">Clear</button></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>搜尋商品 結果</label>
+                                        <div class="card-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">ID</th>
+                                                    <th>品名</th>
+                                                    <th>圖片</th>
+                                                    <th>售價</th>
+                                                    <th>優惠價</th>
+                                                    <th>庫存數量</th>
+                                                    <th>action</th>
+                                                </tr>
+                                                <tr v-for="(item, index) in productSearchResult">
+                                                    <td>{{ item.id }}</td>
+                                                    <td>{{ item.productName }}</td>
+                                                    <td><img :src="item.productImgResourceUrl" width="100px"></td>
+                                                    <td>{{ item.price }}</td>
+                                                    <td>{{ item.discountedPrices }}</td>
+                                                    <td>{{ item.stockQuantity }}</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-block btn-outline-primary" @click="addToSaleGroup( item )">加入</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>已加入團購物品</label>
+                                        <div class="card-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">ID</th>
+                                                    <th>品名</th>
+                                                    <th>圖片</th>
+                                                    <th>售價</th>
+                                                    <th>優惠價</th>
+                                                    <th>庫存數量</th>
+                                                    <th>action</th>
+                                                    <th>action</th>
+                                                    <th>action</th>
+                                                </tr>
+                                                <tr v-for="(item, index) in itemData.saleGroupItems">
+                                                    <td>{{ item.id }}</td>
+                                                    <td>{{ item.productName }}</td>
+                                                    <td><img :src="item.productImgResourceUrl" width="100px"></td>
+                                                    <td>{{ item.price }}</td>
+                                                    <td>{{ item.discountedPrices }}</td>
+                                                    <td>{{ item.stockQuantity }}</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-block btn-outline-primary" @click="moveUpItem(itemData.saleGroupItems, index )">上移</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-block btn-outline-secondary" @click="moveDownItem(itemData.saleGroupItems, index )">下移</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-block btn-outline-danger" @click="deleteItem(itemData.saleGroupItems, index)">刪除</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+                                    <div class="card-footer">
+                                        <button type="button" class="btn btn-primary" @click="updateItem">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<script src="../../dist/js/plugins/ckeditor4/ckeditor.js"></script>
+<!--<link rel="stylesheet" href="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">-->
+<!-- CK Editor -->
+<!--<script src="../../plugins/ckeditor/ckeditor.js"></script>-->
+<!-- Bootstrap WYSIHTML5 -->
+<!--<script src="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>-->
+<script th:inline="javascript">
+    // 處裡檔案選擇的預覽, 上傳的檔案元素, 預覽的標籤 ID
+    function handleFiles(files, preview_id) {
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            console.log('name: ' + file.name);
+            console.log('size: ' + file.size);
+            console.log('type: ' + file.type);
+        }
+        var previewElement = document.getElementById(preview_id);
+        if (!files.length) {
+            previewElement.innerHTML = "";
+        } else {
+            previewElement.innerHTML = "";
+            var img = document.createElement("img");
+            img.src = window.URL.createObjectURL(files[0]);
+            img.height = 100;
+            img.onload = function () {
+                window.URL.revokeObjectURL(this.src);
+            }
+            previewElement.appendChild(img);
+        }
+    }
+    $(function () {
+        // 啟動檔案選擇按鈕
+        $('#sale_group_img_file_selector').click(function () {
+            $('#sale_group_img_file_elem').trigger('click');
+        });
+    })
+
+    var vueMainContent = new Vue({
+        el: '#vue-main-content',
+        data: {
+            itemData: {
+                groupName: '',
+                groupImgId: '',
+                groupImgResourceUrl: '',
+                saleStartDate: '',
+                saleEndDate: '',
+                saleStatus: 1,
+                saleGroupItems: []
+            },
+            productSearchKeyword: '',
+            productSearchResult: []
+        },
+        created: function () {
+            var vueData = this;
+            var id = getParameter('id');
+            axios.get('/api/v1/saleGroup/' + id)
+                .then(function (response) {
+                    if (response.status == 200) {
+                        console.log(response.data);
+                        vueData.itemData = response.data;
+                    } else {
+                        console.log(response);
+                    }
+                }).catch(function (error) {
+                console.log(error);
+            });
+
+        },
+        methods: {
+            updateItem: function () {
+                var vueData = this;
+                var id = getParameter('id');
+                axios.put('/api/v1/saleGroup/' + id, vueData.itemData)
+                    .then(function (response) {
+                        if (response.status == 200) {
+                            alert('更新成功');
+                            //document.location.href = 'ReservationProjectList.html?designcompanyid=' + vuedata.designCompanyId;
+                        } else {
+                            alert(response.data.message);
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            productSearch: function () { // 查詢商品
+                var vueData = this;
+                axios.get('/products/search/findByProductNameLike?productName=' + this.productSearchKeyword)
+                    .then(function (response) {
+                        if (response.status == 200) {
+                            console.log(response.data);
+                            vueData.productSearchResult = response.data._embedded.products;
+                        } else {
+                            console.log(response);
+                        }
+                    }).catch(function (error) {
+                    console.log(error);
+                });
+            },
+            productSearchClear: function(){
+                this.productSearchKeyword = '';
+                this.productSearchResult = [];
+            },
+            addToSaleGroup: function( productItem ){ // 加入開團
+                var vueData = this;
+                // 檢驗是否已存在
+                var repeat = this.itemData.saleGroupItems.filter(function(element, index, arr){
+                    return element.id === productItem.id;
+                });
+                // 不存在才加入
+                if(repeat.length == 0){
+                    this.itemData.saleGroupItems.push(productItem);
+                }
+            },
+            deleteProductImg: function () {
+                this.itemData.groupImgId = '';
+                this.itemData.groupImgResourceUrl = '';
+            },
+            moveUpItem: function (arr, index) {
+                if (index > 0) {
+                    arr.splice(index - 1, 0, arr.splice(index, 1)[0]);
+                }
+            },
+            moveDownItem: function (arr, index) {
+                if (index + 1 < arr.length) {
+                    arr.splice(index + 1, 0, arr.splice(index, 1)[0]);
+                }
+            },
+            deleteItem: function (arr, index) {
+                arr.splice(index, 1);
+            },
+            upload_sale_group_img: function () { // 上傳團購圖
+                var vueData = this;
+                upload_image_fn('sale_group_img_file_elem',
+                    function (response) {
+                        vueData.itemData.groupImgId = response.data.id;
+                        vueData.itemData.groupImgResourceUrl = response.data.resourceUrl;
+                        document.getElementById('sale_group_img_file_elem').value = '';
+                        document.getElementById('sale_group_img_file_preview').innerHTML = '';
+                    }
+                );
+            }
+        }
+    });
+
+    function upload_image_fn(fileElem, successFn, failureFn) {
+        var bodyFormData = new FormData();
+        bodyFormData.append("uploadChannel", "sale_group");
+        bodyFormData.append("file", document.getElementById(fileElem).files[0]);
+        // bodyFormData.set('file', document.getElementById('fileElem').files[0]);
+        // bodyFormData.set('description', document.getElementById('description').value);
+        var config = {
+            onUploadProgress: function (progressEvent) {
+                var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                console.log(percentCompleted)
+            },
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        };
+        // var instance = createAxiosWithToken();
+        var instance = axios.create();
+        instance.post('/images/create', bodyFormData, config)
+            .then(function (response) {
+                if (response.status == 201) {
+                    console.log('圖片上傳成功=>' + response);
+                    if (successFn != null) {
+                        successFn(response);
+                    }
+                } else {
+                    console.log('圖片上傳失敗=>' + response);
+                    if (failureFn != null) {
+                        failureFn(response);
+                    }
+                }
+            }).catch(function (error) {
+            console.log(error);
+            alert('圖片上傳失敗，請稍後再試');
+            $.unblockUI();
+        });
+    }
+
+    function getParameter(theParameter) {
+        var params = window.location.search.substr(1).split('&');
+
+        for (var i = 0; i < params.length; i++) {
+            var p=params[i].split('=');
+            if (p[0] == theParameter) {
+                return decodeURIComponent(p[1]);
+            }
+        }
+        return false;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<html class="h-100">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>benwon 飯團媽團購批發</title>
+
+
+<!-- CSS -->
+<link rel="stylesheet" href="/css/bootstrap4-toggle.min.css"></link>
+<link rel="stylesheet" href="/docs/4.2/dist/css/bootstrap.css"></link>
+<link rel="stylesheet" href="/docs/4.2/assets/css/docs.min.css"></link>
+<link rel="stylesheet" href="/css/3.3.7_bootstrap.min.css"></link>
+<link rel="stylesheet" href="/css/4.3.1_bootstrap.min.css"></link>
+<link rel="stylesheet" href="/css/bootstrap-grid.css"></link>
+<link rel="stylesheet" href="/css/bootstrap-grid.min.css"></link>
+<link rel="stylesheet" href="/css/bootstrap-reboot.css"></link>
+<link rel="stylesheet" href="/css/bootstrap-reboot.min.css"></link>
+<link rel="stylesheet" href="/css/bootstrap.css"></link>
+<link rel="stylesheet" href="/css/bootstrap.min.css"></link>
+<link rel="stylesheet" href="/css/benwon.css"></link>
+<!-- CSS -->
+
+<!-- JS -->
+<script src="/js/2.0.0/jquery.min.js"></script>
+<script src="/js/fontawesome/all.js"></script>
+<script src="/js/bootstrap4-toggle.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/2.1.1/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/4.3.1/bootstrap.min.js"></script>
+<script src="/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/js/3.3.7/bootstrap.min.js"></script>
+<script src="/js/2.0.0/jquery.min.js"></script>
+<script src="/js/jquery.twzipcode.min.js"></script>
+<script src="/js/subtract.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		/* 按下GoTop按鈕時的事件 */
+		$('#gotop').click(function() {
+			$('html,body').animate({
+				scrollTop : 0
+			}, 'slow'); /* 返回到最頂上 */
+			return false;
+		});
+
+		/* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > 200) {
+				$('#gotop').fadeIn();
+			} else {
+				$('#gotop').fadeOut();
+			}
+		});
+	});
+</script>
+<!-- JS -->
+
+
+</head>
+<body>
+	<div id="shopCartContext">
+		<!-- web -->
+		<!-- 回到最上層 -->
+		<div class="visible-md visible-lg">
+			<a id="gotop" class="gotop_web" href="/order.html"> <i
+				class="fa fa-chevron-circle-up gotop"></i>
+			</a>
+		</div>
+		<!-- 回到最上層 -->
+
+		<!-- 購物車 -->
+		<div class="visible-md visible-lg">
+			<a id="shop_cart_red" class="shop_cart_web" href="/order.html"
+				v-if="shopListSize > 0"></a> <a id="shop_cart" class="shop_cart_web"
+				href="/order.html"> <i class="fas fa-shopping-cart shop_cart"></i>
+			</a>
+		</div>
+		<!-- 購物車 -->
+
+		<!-- phone -->
+		<!-- 回到最上層 -->
+		<div class="hidden-md hidden-lg">
+			<a id="gotop" class="gotop_phone" href="#"> <i
+				class="fa fa-chevron-circle-up gotop"></i>
+			</a>
+		</div>
+		<!-- 回到最上層 -->
+
+
+		<!-- 購物車 -->
+		<div class="hidden-md hidden-lg">
+			<a id="shop_cart_red" class="shop_cart_phone_red" href="/order.html"
+				v-if="shopListSize > 0"> </a> <a id="shop_cart"
+				class="shop_cart_phone" href="/order.html"> <i
+				class="fas fa-shopping-cart shop_cart"></i>
+			</a>
+		</div>
+		<!-- 購物車 -->
+	</div>
+
+	<!-- 購物車 -->
+	<div class="hidden-md hidden-lg">
+		<a id="shop_cart_red" class="shop_cart_phone_red" href="#"> </a> <a
+			id="shop_cart" class="shop_cart_phone" href="#"> <i
+			class="fas fa-shopping-cart shop_cart"></i>
+		</a>
+	</div>
+	<!-- 購物車 -->
+
+	<!-- navbar漢堡選單 -->
+	<div
+		class="navbar navbar-expand-lg navbar-dark flex-column flex-md-row rounded bg-navbar">
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarsExample10" aria-controls="navbarsExample10"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse justify-content-md-center">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link active" href="#">商品清單<span
+						class="sr-only">(current)</span></a></li>
+				<li class="nav-item"><a class="nav-link" href="#">歷史訂單</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">聯絡我們</a></li>
+			</ul>
+		</div>
+
+	</div>
+	<!-- navbar漢堡選單 -->
+
+	<!-- 白底間隔 -->
+	<div class="container-fluid product_pg_all"></div>
+	<!-- 白底間隔 -->
+
+	<!-- 粉色底 -->
+	<div class="container-fluid pink_bottom ">
+
+		<!-- logo -->
+		<div class="container-fluid logo_margin">
+			<div class="col-12 text-center">
+				<img class="product_pg_logo" src="images/logo_pc.svg">
+			</div>
+		</div>
+		<!-- logo -->
+
+		<!-- 內容 -->
+		<div id="vue-app" class="row justify-content-center">
+			<div id="col-lg-12" class="product_pg_box_all">
+
+				<!-- 歷史訂單內容 -->
+				<div class="col-12 pa00200">
+					<div class="text-center">
+
+						<div class="nav nav-tabs">
+							<h2 class="nav-link not_s_tbs active">歷史訂單</h2>
+						</div>
+
+						<div class="order_bg522F35">
+							<div class="order_all_content tab-content">
+								<div class="old_order_box_txt">
+
+									<div class="table-responsive">
+										<table class="rwd-table table-hover old_order_txt_bc">
+											<thead>
+												<tr>
+													<th><div class="nav nav-tabs old_order_txt_nav">日期</div></th>
+													<th><div class="nav nav-tabs old_order_txt_nav">單號</div></th>
+													<th><div class="nav nav-tabs old_order_txt_nav">收件人</div></th>
+													<th><div class="nav nav-tabs old_order_txt_nav">訂單金額</div></th>
+													<th><div class="nav nav-tabs old_order_txt_nav">付款狀態</div></th>
+													<th><div class="nav nav-tabs old_order_txt_nav">出貨狀態</div></th>
+													<th><div class="nav nav-tabs old_order_txt_nav">明細</div></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr v-for="item in saleOrders">
+													<td data-th="日期">{{ convertLocalTime( item.createdDate
+														) }}</td>
+													<td data-th="單號">{{ item.id }}</td>
+													<td data-th="收件人">{{ item.receiverName }}</td>
+													<td data-th="訂單金額">${{ formatAmount( item.orderAmount ) }}</td>
+													<td data-th="付款狀態"><span v-if="item.payState === 0"
+														class="badge badge-pill badge-danger font14">未付款</span> <span
+														v-if="item.payState === 1"
+														class="badge badge-pill badge-secondary font14">已付款</span>
+													</td>
+													<td data-th="出貨狀態"><span v-if="item.isShipped === 0"
+														class="badge badge-pill badge-danger font14">未出貨</span> <span
+														v-if="item.isShipped === 1"
+														class="badge badge-pill badge-secondary font14">已出貨</span>
+													</td>
+													<td data-th="明細">
+														<button class="badge badge-pill badge-light font14" @click.prevent="showDetail( item )">下載</button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- 歷史訂單內容 -->
+
+				<!-- 分頁按鈕 
+				<div class="row justify-content-center pa00600">
+					<div class="btn-toolbar" role="toolbar"
+						aria-label="Toolbar with button groups">
+						<div class="btn-group btn-group-lg" role="group"
+							aria-label="up group">
+							<button type="button" class="btn btn-light color522F35">上一頁</button>
+						</div>
+						<div class="btn-group btn-group-lg" role="group"
+							aria-label="all group">
+							<button type="button" class="btn btn-light color522F35">1</button>
+							<button type="button" class="btn btn-light color522F35">2</button>
+							<button type="button" class="btn btn-light color522F35">3</button>
+							<button type="button" class="btn btn-light color522F35">4</button>
+							<button type="button" class="btn btn-light color522F35">5</button>
+						</div>
+						<div class="btn-group btn-group-lg" role="group"
+							aria-label="down group">
+							<button type="button" class="btn btn-light color522F35">下一頁</button>
+						</div>
+					</div>
+				</div>
+				<!-- 分頁按鈕 -->
+
+				<!-- 聯絡 -->
+				<div class="row justify-content-center">
+					<div class="col-10 col-md-4 pa_b20">
+						<div class="old_order_button_1">
+							<button type="button"
+								class="contact_button btn-danger btn-lg btn-block ">
+								<h1 class="m-0">新增訂單</h1>
+							</button>
+						</div>
+					</div>
+					<div class="col-10 col-md-4 pa_b20">
+						<div class="old_order_button_1">
+							<button type="button"
+								class="contact_button btn-secondary btn-lg btn-block ">
+								<h1 class="m-0">聯絡客服</h1>
+							</button>
+						</div>
+					</div>
+				</div>
+				<!-- 聯絡 -->
+
+			</div>
+			
+			<div id="orderDetail" style="display: none;">
+				<div class="table-responsive">
+					<table class="rwd-table table-hover old_order_txt_bc">
+						<tbody>
+							<tr>
+								<td data-th="">訂單編號</td>
+								<td data-th="">{{ orderDetail.id }}</td>
+							</tr>
+							<tr>
+								<td data-th="">收件人</td>
+								<td data-th="">{{ orderDetail.receiverName }}</td>
+							</tr>
+							<tr>
+								<td data-th="">連絡電話</td>
+								<td data-th="">{{ orderDetail.mobilePhone }}</td>
+							</tr>
+							<tr>
+								<td data-th="">收件地址</td>
+								<td data-th="">{{ orderDetail.zipcode }} {{ orderDetail.county }} {{ orderDetail.district }} {{ orderDetail.receiverAddress }}</td>
+							</tr>
+							<tr>
+								<td data-th="">備註</td>
+								<td data-th="">{{ orderDetail.remark }}</td>
+							</tr>
+							<tr>
+								<td data-th="" colspan="2">訂單明細</td>
+							</tr>
+							<tr v-for="item in orderDetail.saleOrderDetails">
+								<td data-th="" colspan="2">{{ item.productName }} - {{ item.productItemName }} * {{ item.unitCount}} ( {{ item.salesUnitDesc }} )</td>
+							</tr>
+							<tr>
+								<td data-th="" colspan="2">
+									<button class="badge badge-pill badge-light font14" @click.prevent="closeDetail()">關閉</button>
+								</td>
+							<tr>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+		
+		<!-- 內容 -->
+
+	</div>
+	<!-- 粉色底 -->
+
+
+	<!-- 底部導覽列 -->
+	<footer class="container py-5">
+		<div class="row justify-content-md-center">
+			<div class="col-md-2 col-xs-12 text-center">
+				<img class="product_pg_bottom_logo pb-2 " src="images/logo_icon.svg">
+				<small class="d-block mb-3 text-muted">© 2019 by benwon</small>
+			</div>
+			<div class="col-md-4 col-xs-12 text-center">
+				<thead class="table table-borderless">
+					<tr>
+						<th scope="col"><img class="button_icon" alt=""
+							onclick="setBanner(); showFlag(); "
+							onmouseout="this.src='images/button/button_icon_fb_1.svg'"
+							onmouseover="this.src='images/button/button_icon_fb_2.svg'"
+							src="images/button/button_icon_fb_1.svg"></th>
+						<th scope="col"><img class="button_icon" alt=""
+							onclick="setBanner(); showFlag(); "
+							onmouseout="this.src='images/button/button_icon_line_1.svg'"
+							onmouseover="this.src='images/button/button_icon_line_2.svg'"
+							src="images/button/button_icon_line_1.svg"></th>
+						<th scope="col"><img class="button_icon" alt=""
+							onclick="setBanner(); showFlag(); "
+							onmouseout="this.src='images/button/button_icon_3_1.svg'"
+							onmouseover="this.src='images/button/button_icon_3_2.svg'"
+							src="images/button/button_icon_3_1.svg"></th>
+					</tr>
+				</thead>
+
+			</div>
+
+		</div>
+	</footer>
+	<!-- 底部導覽列 -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+	<script src="/js/axios.util.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		Vue.config.devtools = true;
+		Vue.config.debug = true;
+
+		var vueShopCart = new Vue({
+			el : '#shopCartContext',
+			data : {
+				shopCart : {},
+				shopListSize : 0
+			},
+			created : function() {
+				var localDataShopCart = localStorage
+						.getItem('localDataShopCart');
+				if (localDataShopCart != null) {
+					var shopCart = JSON.parse(localDataShopCart);
+					this.setShopCart(shopCart);
+				}
+			},
+			methods : {
+				setShopCart : function(shopCart) {
+					this.shopListSize = shopCart.shopList.length;
+				}
+			}
+		});
+
+		var vueapp = new Vue({
+			el : '#vue-app',
+			data : {
+				saleOrders : [],
+				orderDetail : {}
+			},
+			created : function() {
+				var vueData = this;
+
+				var localDataShopCart = localStorage
+						.getItem('localDataShopCart');
+				if (localDataShopCart != null) {
+					this.shopCart = JSON.parse(localDataShopCart);
+				}
+				axiosGet('/api/v1/me/saleOrders/all', function(response) {
+					if (response.status == 200) {
+						console.log(response.data);
+						vueData.saleOrders = response.data;
+					} else {
+						alert(response.data.message);
+						console.log(response);
+					}
+				}, function(response) {
+					alert(response.data.message);
+				});
+
+			},
+			watch : {},
+			methods : {
+				convertLocalTime : function(isoDateTime) {
+					return moment.utc(isoDateTime).local().format(
+							'YYYY-MM-DD HH:mm:ss');
+				},
+				formatAmount : function(amount) {
+					return amount.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,
+							'$1,')
+				},
+				showDetail : function(item) {
+					var vueData = this;
+					vueData.orderDetail = item;
+					$.blockUI({
+						message : $('#orderDetail')
+					});
+				},
+				closeDetail : function(){
+					$.unblockUI();
+				}
+			}
+		});
+
+		/*]]>*/
+	</script>
+</body>
+</html>

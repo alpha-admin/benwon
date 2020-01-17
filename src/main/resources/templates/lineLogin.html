@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>飯團媽-團購、批發、選物</title>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var client_id = [[${client_id}]];
+    var redirect_uri = [[${redirect_uri}]];
+    var state = [[${state}]];
+    var bot_prompt = [[${bot_prompt}]];
+    var scope = [[${scope}]];
+    var ui_locales = [[${ui_locales}]];
+    $(function () {
+        sessionStorage.clear();
+        var URL = 'https://access.line.me/oauth2/v2.1/authorize?';
+        URL += 'response_type=code';
+        URL += '&client_id=' + client_id;
+        URL += '&redirect_uri=' + redirect_uri;
+        URL += '&state=' + state;
+        URL += '&bot_prompt=' + bot_prompt;
+        URL += '&scope=' + scope;
+        URL += '&ui_locales=' + ui_locales;
+        window.location.href = URL;
+    });
+    /*]]>*/
+</script>
+</body>
+</html>

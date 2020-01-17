@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">首頁商品管理</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">首頁商品</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content" id="vue-main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">新增</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form role="form">
+                                <div class="card-body">                                    
+                                    <div class="form-group">
+                                        <label for="productSearchKeyword">搜尋商品</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="productSearchKeyword" v-model.trim="productSearchKeyword">
+                                            <span class="input-group-append"><button type="button" class="btn btn-info btn-flat" @click="productSearch">Go!</button></span>
+                                            <span class="input-group-append"><button type="button" class="btn bg-light btn-flat" @click="productSearchClear">Clear</button></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>搜尋商品 結果</label>
+                                        <div class="card-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">ID</th>
+                                                    <th>品名</th>
+                                                    <th>圖片</th>
+                                                    <th>售價</th>
+                                                    <th>優惠價</th>
+                                                    <th>庫存數量</th>
+                                                    <th>action</th>
+                                                </tr>
+                                                <tr v-for="(item, index) in productSearchResult">
+                                                    <td>{{ item.id }}</td>
+                                                    <td>{{ item.productName }}</td>
+                                                    <td><img :src="item.productImgResourceUrl" width="100px"></td>
+                                                    <td>{{ item.salePrice }}</td>
+                                                    <td>{{ item.discPrice }}</td>
+                                                    <td>{{ item.stockQuantity }}</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-block btn-outline-primary" @click="addToSale( item )">加入</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>已加入首頁商品</label>
+                                        <div class="card-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">ID</th>
+                                                    <th>品名</th>
+                                                    <th>圖片</th>
+                                                    <th>售價</th>
+                                                    <th>優惠價</th>
+                                                    <th>庫存數量</th>
+                                                    <th>action</th>
+                                                    <th>action</th>
+                                                    <th>action</th>
+                                                </tr>
+                                                <tr v-for="(item, index) in dataList">
+                                                    <td>{{ item.id }}</td>
+                                                    <td>{{ item.productName }}</td>
+                                                    <td><img :src="item.productImgResourceUrl" width="100px"></td>
+                                                    <td>{{ item.salePrice }}</td>
+                                                    <td>{{ item.discPrice }}</td>
+                                                    <td>{{ item.stockQuantity }}</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-block btn-outline-primary" @click="moveUpItem(dataList, index )">上移</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-block btn-outline-secondary" @click="moveDownItem(dataList, index )">下移</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-block btn-outline-danger" @click="deleteItem(dataList, index)">刪除</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+                                    <div class="card-footer">
+                                        <button type="button" class="btn btn-primary" @click="updateList">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+    </section>
+</div>
+<script src="/admin/dist/js/plugins/ckeditor4/ckeditor.js"></script>
+<!--<link rel="stylesheet" href="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">-->
+<!-- CK Editor -->
+<!--<script src="../../plugins/ckeditor/ckeditor.js"></script>-->
+<!-- Bootstrap WYSIHTML5 -->
+<!--<script src="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>-->
+<script th:inline="javascript">
+    var vueMainContent = new Vue({
+        el: '#vue-main-content',
+        data: {
+            dataList: [],
+            // 分頁的資料
+            page: {
+                size: 100,
+                totalElements: 0,
+                totalPages: 0,
+                number: 0
+            },
+            sort: {
+                field: 'createdDate',
+                direction: 'desc'
+            },
+            links: {},
+            // 搜尋的資料
+            productSearchKeyword: '',
+            productSearchResult: []
+        },
+        created: function () {
+            this.getData();
+        },
+        methods: {
+            getData: function () {
+                var vueData = this;
+                var queryUri = '/products/search/findSaleOnPortal?page=' + vueData.page.number + '&size=' + vueData.page.size ;
+                axiosGet(
+                    queryUri ,
+                    function (response) {
+                        if (response.status == 200) {
+                            vueData.dataList = response.data._embedded.products;
+                            vueData.page = response.data.page;
+                            vueData.links = response.data._links;
+                        } else {
+                            console.log(response);
+                        }
+                    },
+                    function(response){
+                        alert('資料載入失敗');
+                    }
+                );
+            },
+            updateList: function () { // 更新
+                var vueData = this;
+                var updateUri = '/api/v1/SalePortals';
+                axiosPut(
+                    updateUri,
+                    {'salePortalList': vueData.dataList}
+                    , 
+                    function(response){
+                        if(response.status == 200){
+                            document.location.href = '/admin/salePortalList.html';
+                        }else{
+                            alert(response.data.message);
+                        }                        
+                    }, 
+                    function(response){
+                        alert(response.data.message);
+                    }
+                );
+            },
+            productSearch: function () { // 查詢商品
+                var vueData = this;
+                axios.get('/products/search/findByProductNameLike?productName=' + this.productSearchKeyword)
+                    .then(function (response) {
+                        if (response.status == 200) {
+                            console.log(response.data);
+                            vueData.productSearchResult = response.data._embedded.products;
+                        } else {
+                            console.log(response);
+                        }
+                    }).catch(function (error) {
+                    console.log(error);
+                });
+            },
+            productSearchClear: function(){
+                this.productSearchKeyword = '';
+                this.productSearchResult = [];
+            },
+            addToSale: function( productItem ){ // 加入銷售
+                var vueData = this;
+                // 檢驗是否已存在
+                var repeat = this.dataList.filter(function(element, index, arr){
+                    return element.id === productItem.id;
+                });
+                // 不存在才加入
+                if(repeat.length == 0){
+                    this.dataList.push( productItem );
+                }
+            },
+            moveUpItem: function (arr, index) {
+                if (index > 0) {
+                    arr.splice(index - 1, 0, arr.splice(index, 1)[0]);
+                }
+            },
+            moveDownItem: function (arr, index) {
+                if (index + 1 < arr.length) {
+                    arr.splice(index + 1, 0, arr.splice(index, 1)[0]);
+                }
+            },
+            deleteItem: function (arr, index) {
+                arr.splice(index, 1);
+            }
+        }
+    });
+</script>
+</body>
+</html>

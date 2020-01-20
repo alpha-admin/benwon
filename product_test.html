@@ -36,6 +36,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
 
+
 <script type="text/javascript">
 $(function() {
    /* 按下GoTop按鈕時的事件 */
@@ -56,6 +57,11 @@ $(function() {
 </script>
 
 
+<script type="text/javascript">
+
+
+</script>
+
 
 
 <!-- JS -->
@@ -63,28 +69,28 @@ $(function() {
 </head>
 <body>
 
+<!-- navbar漢堡選單 -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
 
-<!-- lightbox-->
+    <ul class="navbar-nav nav-fill">
+      <li class="nav-item">
+        <a class="nav-link active" href="#" >商品清單</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" >歷史訂單</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" >聯絡我們</a>
+      </li>
+    </ul>
 
-  <div class="modal fade" id="modalGM" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  	<div class="modal-dialog row justify-content-center">
-  		<div class="modal-content col-lg-6">
-
-        <div class="modal-header carousel-inner text-center product_box_bg_01">
-          <div class="col-10 col-sm-12 pa0505">
-            <h1 class="product_box_pg_title_h1">Savoursmiths 手工洋芋片</h1>
-          </div>
-          <button class="Back_icon" data-dismiss="modal" aria-hidden="true"><i class="fas fa-times"></i></button>
-        </div>
-
-        <div class="modal-footer bo0">
-          <iframe src="product_box_1.html" frameborder="0"></iframe>
-        </div>
-
-  		</div>
-  	</div>
   </div>
-
+</nav>
+<!-- navbar漢堡選單 -->
 
 
 <!-- web -->
@@ -125,28 +131,26 @@ $(function() {
 </div>
 <!-- 購物車 -->
 
-<!-- navbar漢堡選單 -->
-<div class="navbar navbar-expand-lg navbar-dark flex-column flex-md-row rounded bg-navbar">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<!-- lightbox-->
+  <div class="modal fade" id="modalGM" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog row justify-content-center">
+  		<div class="modal-content col-lg-6">
 
-    <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="#" >商品清單<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" >歷史訂單</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" >聯絡我們</a>
-        </li>
-      </ul>
-    </div>
+        <div class="modal-header carousel-inner text-center product_box_bg_01">
+          <div class="col-10 col-sm-12 pa0505">
+            <h1 class="product_box_pg_title_h1">Savoursmiths 手工洋芋片</h1>
+          </div>
+          <button class="Back_icon" data-dismiss="modal" aria-hidden="true"><i class="fas fa-times"></i></button>
+        </div>
 
-</div>
-<!-- navbar漢堡選單 -->
+        <div class="modal-footer bo0">
+          <iframe src="product_box_1.html" frameborder="0"></iframe>
+        </div>
+
+  		</div>
+  	</div>
+  </div>
+<!-- lightbox-->
 
 <!-- 白底間隔 -->
 <div class="container-fluid product_pg_all" >

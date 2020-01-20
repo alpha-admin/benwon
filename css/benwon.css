@@ -64,11 +64,14 @@
 }
 /* 漢堡選單ed */
 
+
+/* 白底間隔 */
 .product_pg_all {
   color:#ffffff;
-  margin-top:265px;
+  margin-top:340px;
 }
 
+/* 粉色底間隔 */
 .pink_bottom {
   background-image:url(../images/bg.jpg);
 }
@@ -79,7 +82,7 @@
 
 /*上方logo*/
 .product_pg_logo {
-  max-width: 130px;
+  max-width: 120px;
   margin-bottom: 10px;
 }
 
@@ -784,13 +787,14 @@ input.qtyminus {
 
 #gotop {
   position: fixed;
-  z-index: 20;
+  z-index: 1031;
   width:41px;
   height:41px;
   opacity: 0.95;
   line-height:40px;
   transition:all 0.3s;
   text-align: center;
+  color: #ffffff;
   background:#381e1d;
   border-radius:100%;
   box-shadow: 0 5px 5px 0 rgba(0,0,0,0.20), 0 2px 5px 0 rgba(0,0,0,0.20);
@@ -807,13 +811,14 @@ input.qtyminus {
 
 #shop_cart {
   position: fixed;
-  z-index: 30;
+  z-index: 1031;
   width:60px;
   height:60px;
   opacity: 0.95;
   line-height:40px;
   transition:all 0.3s;
   text-align: center;
+  color: #ffffff;
   background:#381e1d;
   border-radius:100%;
   box-shadow: 0 5px 5px 0 rgba(0,0,0,0.20), 0 2px 5px 0 rgba(0,0,0,0.20);
@@ -825,12 +830,12 @@ input.qtyminus {
 
 .shop_cart {
   font-size:35px ;
-  margin: 13px 2px 0 0 ;
+  margin: 14px 2px 0 0 ;
 }
 
 #shop_cart_red {
   position: fixed;
-  z-index: 31;
+  z-index: 1032;
   width:12px;
   height:12px;
   margin:0px 0px 0 0;
@@ -845,27 +850,27 @@ input.qtyminus {
 
 .gotop_web {
   right:35px;
-  bottom: 30px;
+  bottom: 35px;
 }
 
 .gotop_phone {
-  right:10px;
-  bottom: 30px;
+  right:8px;
+  bottom: 40px;
 }
 
 .shop_cart_web {
   right:35px;
-  top: 30px;
+  top: 33px;
 }
 
 .shop_cart_phone {
-  right:10px;
-  bottom: 90px;
+  right:8px;
+  bottom: 110px;
 }
 
 .shop_cart_phone_red {
   right:8px;
-  bottom: 137px;
+  bottom: 157px;
 }
 
 

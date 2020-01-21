@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>benwon 飯團媽團購批發</title>
+  <title>飯團媽 | 團購、批發、選物</title>
 
 
 <!-- CSS -->
@@ -99,41 +99,60 @@ $(function() {
 <!-- 購物車 -->
 
 <!-- navbar漢堡選單 -->
-<div class="navbar navbar-expand-lg navbar-dark flex-column flex-md-row rounded bg-navbar">
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-   </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+  data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+  aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
 
-   <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
-     <ul class="navbar-nav">
-       <li class="nav-item">
-         <a class="nav-link active" href="#" >商品清單<span class="sr-only">(current)</span></a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" href="#" >歷史訂單</a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" href="#" >聯絡我們</a>
-       </li>
-     </ul>
-   </div>
+    <ul class="navbar-nav nav-fill">
+      <li class="nav-item">
+        <a class="nav-link" href="/index.html" >商品清單</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/old_order.html" >歷史訂單</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" >聯絡我們</a>
+      </li>
+    </ul>
 
-</div>
+  </div>
+
+  <!-- logo 1-->
+  <div class="container-fluid logo_margin_1 visible-xs" >
+    <div class="col-12 text-center" >
+      <img class="product_pg_logo_1" src="images/logo_phone.svg" >
+    </div>
+  </div>
+  <!-- logo -->
+</nav>
 <!-- navbar漢堡選單 -->
 
 <!-- 白底間隔 -->
-<div class="container-fluid product_pg_all" >
+<!-- 白底間隔 1-->
+<div class="container-fluid product_pg_all_1 visible-xs" >
+</div>
+
+<!-- 白底間隔 2-->
+<div class="container-fluid product_pg_all_2 visible-sm " >
+</div>
+
+<!-- 白底間隔 34-->
+<div class="container-fluid product_pg_all_34 visible-md visible-lg" >
 </div>
 <!-- 白底間隔 -->
 
 <!-- 粉色底 -->
-<div class="container-fluid pink_bottom " >
+<div class="container-fluid pink_bottom" >
 
-  <!-- logo -->
-  <div class="container-fluid logo_margin" >
-   <div class="col-12 text-center" >
-     <img class="product_pg_logo" src="images/logo_pc.svg" >
-   </div>
+  <!-- logo 234-->
+  <div class="container-fluid logo_margin_234 hidden-xs" >
+    <div class="col-12 text-center" >
+      <img class="product_pg_logo_234" src="images/logo_pc.svg" >
+    </div>
   </div>
   <!-- logo -->
 
@@ -142,7 +161,7 @@ $(function() {
   <div id="col-lg-12" class="product_pg_box_all" >
 
     <!-- 歷史訂單內容 -->
-    <div class="col-12 pa00200" >
+    <div class="col-12 pa00200 pt-3" >
     <div class ="text-center">
 
       <div class="nav nav-tabs">
@@ -265,11 +284,7 @@ $(function() {
 <!-- 底部導覽列 -->
 <footer class="container py-5" >
  <div class="row justify-content-md-center">
-   <div class="col-md-2 col-xs-12 text-center">
-     <img class="product_pg_bottom_logo pb-2 " src="images/logo_icon.svg" >
-     <small class="d-block mb-3 text-muted">© 2019 by benwon</small>
-   </div>
-   <div class="col-md-4 col-xs-12 text-center">
+   <div class="col-md-4 col-xs-12 pt-3 text-center">
      <thead class="table table-borderless">
        <tr>
          <th scope="col">
@@ -289,6 +304,11 @@ $(function() {
            onmouseout="this.src='images/button/button_icon_3_1.svg'"
            onmouseover="this.src='images/button/button_icon_3_2.svg'"
            src="images/button/button_icon_3_1.svg" >
+         </th>
+         <th scope="col">
+           <div class="col text-center">
+             <small class="d-block mb-3 pt-3 text-muted">© 2019 by benwon</small>
+           </div>
          </th>
        </tr>
      </thead>

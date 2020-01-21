@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>benwon 飯團媽團購批發</title>
+  <title>飯團媽 | 團購、批發、選物</title>
 
 
 <!-- CSS -->
@@ -81,41 +81,60 @@ $(function() {
 
 
 <!-- navbar漢堡選單 -->
-<div class="navbar navbar-expand-lg navbar-dark flex-column flex-md-row rounded bg-navbar">
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-   </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+  data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+  aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
 
-   <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
-     <ul class="navbar-nav">
-       <li class="nav-item">
-         <a class="nav-link active" href="#" >商品清單<span class="sr-only">(current)</span></a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" href="#" >歷史訂單</a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" href="#" >聯絡我們</a>
-       </li>
-     </ul>
-   </div>
+    <ul class="navbar-nav nav-fill">
+      <li class="nav-item">
+        <a class="nav-link " href="/index.html" >商品清單</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/old_order.html" >歷史訂單</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" >聯絡我們</a>
+      </li>
+    </ul>
 
-</div>
+  </div>
+
+  <!-- logo 1-->
+  <div class="container-fluid logo_margin_1 visible-xs" >
+    <div class="col-12 text-center" >
+      <img class="product_pg_logo_1" src="images/logo_phone.svg" >
+    </div>
+  </div>
+  <!-- logo -->
+</nav>
 <!-- navbar漢堡選單 -->
 
 
 <!-- 白底間隔 -->
-<div class="container-fluid product_pg_all" >
+<!-- 白底間隔 1-->
+<div class="container-fluid product_pg_all_1 visible-xs" >
+</div>
+
+<!-- 白底間隔 2-->
+<div class="container-fluid product_pg_all_2 visible-sm " >
+</div>
+
+<!-- 白底間隔 34-->
+<div class="container-fluid product_pg_all_34 visible-md visible-lg" >
 </div>
 <!-- 白底間隔 -->
 
 <!-- 粉色底 -->
 <div class="container-fluid pink_bottom " >
-  <!-- logo -->
-  <div class="container-fluid logo_margin" >
-   <div class="col-12 text-center" >
-     <img class="product_pg_logo" src="images/logo_pc.svg" >
-   </div>
+  <!-- logo 234-->
+  <div class="container-fluid logo_margin_234 hidden-xs" >
+    <div class="col-12 text-center" >
+      <img class="product_pg_logo_234" src="images/logo_pc.svg" >
+    </div>
   </div>
   <!-- logo -->
 
@@ -125,7 +144,7 @@ $(function() {
     <form action="" method="form-signin">
 
     <!-- 聯絡資訊 -->
-    <div class="col-12 pa00200" >
+    <div class="col-12 pa00200 pt-3" >
     <div class ="text-center">
       <div class="nav nav-tabs">
         <h2 class="nav-link not_s_tbs active">聯絡資訊</h2>
@@ -198,14 +217,20 @@ $(function() {
             </div>
           </dd>
 
-          <dt class="col-12 col-sm-3 col-md-2 px-0">地址：</dt>
-          <dd class="col-sm-9 col-md-10 px-0">
+          <dt class="col-12 col-sm-3 col-md-2 px-0 pt-3">地址：</dt>
+          <dd class="col-sm-9 col-md-10 px-0 pt-3">
             <div class="form-row">
-              <div id="twzipcode" class="col-12 product_box_txt_h px-0 pb-5 pb-sm-2 pt-2 pt-sm-0">
+              <div id="twzipcode" class="col product_box_txt_h pl-0">
                 <script>
                   $("#twzipcode").twzipcode();
                 </script>
               </div>
+            </div>
+          </dd>
+
+          <dt class="col-12 col-sm-3 col-md-2 px-0"></dt>
+          <dd class="col-sm-9 col-md-10 px-0">
+            <div class="form-row">
               <div class="col-12 pt-4 pt-sm-0">
                 <input type="text" class=" form-control" placeholder="請輸入 詳細地址" required />
               </div>
@@ -220,7 +245,7 @@ $(function() {
             </div>
             </div>
           </dd>
-          
+
           <!-- 訂購人是否顯示 -->
           <dt class="col-12 col-sm-3 col-md-2 line_height_30 px-0"></dt>
           <dd class="col-sm-9 col-md-10 pl-2 mt-2 mb-0">
@@ -235,7 +260,7 @@ $(function() {
             </div>
           </dd>
           <!-- 訂購人是否顯示 -->
-          
+
         </dl>
 
       </div>
@@ -259,11 +284,11 @@ $(function() {
 
         <!-- 第1個商品 -->
         <div class="row pa00200 order_box_txt h_center">
-          <div class="col-4 col-sm-2 pa_d-14">
-            <input type="checkbox" checked data-toggle="toggle" data-size="lg" data-on="確認" data-off="刪除" data-height="10">
+          <div class="p-4">
+            <button type="button" benwon-botton="toggle" data-toggle="toggle"  class="btn btn-danger btn-lg">刪除</button>
           </div>
 
-          <div class="col-8 col-sm-10 bg522F35_content">
+          <div class="col bg522F35_content">
           <div class="row order_content">
 
               <div class="col-12 col-sm-2 pa1001010">
@@ -319,11 +344,11 @@ $(function() {
 
         <!-- 第2個商品 -->
         <div class="row pa00200 order_box_txt h_center">
-          <div class="col-4 col-sm-2 pa_d-14">
-            <input type="checkbox" checked data-toggle="toggle" data-size="lg" data-on="確認" data-off="刪除" data-height="10">
+          <div class="p-4">
+            <button type="button" benwon-botton="toggle" data-toggle="toggle"  class="btn btn-danger btn-lg">刪除</button>
           </div>
 
-          <div class="col-8 col-sm-10 bg522F35_content">
+          <div class="col bg522F35_content">
           <div class="row order_content">
 
               <div class="col-12 col-sm-2 pa1001010">
@@ -375,74 +400,13 @@ $(function() {
           </div>
         </div>
 
-        <hr class="ma00020">
-
-        <!-- 第3個商品 -->
-        <div class="row pa00200 order_box_txt h_center">
-          <div class="col-4 col-sm-2 pa_d-14">
-            <input type="checkbox" checked data-toggle="toggle" data-size="lg" data-on="確認" data-off="刪除" data-height="10">
-          </div>
-
-          <div class="col-8 col-sm-10 bg522F35_content">
-          <div class="row order_content">
-
-              <div class="col-12 col-sm-2 pa1001010">
-              <div class="order_photo max_150">
-                <img class="w-100" src="images/product_box_pg/test/00.png" >
-              </div>
-              </div>
-
-              <div class="col-12 col-sm-6 pa1001010">
-                <dl class="row ma0000">
-                  <dt class="col-12 col-md-3 pa0505">品名：</dt>
-                  <dd class="col-12 col-md-9 pa0505">Savoursmiths 手工洋芋片</dd>
-                  <dt class="col-12 col-md-3 pa0505">優惠價：</dt>
-                  <dd class="col-12 col-md-9 pa0505">$9,999</dd>
-                  <dt class="col-12 col-md-3 pa0505">單位：</dt>
-                  <dd class="col-12 col-md-9 pa0505">1箱(12包)</dd>
-                  <dt class="col-12 col-md-3 pa0505">賞味效期：</dt>
-                  <dd class="col-12 col-md-9 pa0505">2020/01/01</dd>
-                </dl>
-              </div>
-
-              <div class="col-12 col-sm-4  align-self-center pa00010 mt-2">
-                <dl class="row ma0000">
-                  <dt class="col-12 col-md-auto ml-md-auto pa0505">
-                    <label for="">訂購數量：</label>
-                  </dt>
-                  <dd class="col-12 col-md-6 pa0505">
-                    <div class="col-12 pa0000">
-                      <input class='qtyminus' type='button' value='-' field='quantity_3'/>
-                      <input class='qty' ype='text' value='0' name='quantity_3'/>
-                      <input class='qtyplus' type='button' value='+' field='quantity_3'/>
-                    </div>
-                  </dd>
-                </dl>
-
-                <dl class="row ma0000">
-                  <dt class="col-12 col-sm-auto ml-md-auto total_red pa0505">
-                    <label>小計：</label>
-                  </dt>
-                  <dd class="col-12 col-sm-6 total_red pa0505">
-                      <h4 class="total_red">$99,999</h4>
-                  </dd>
-                </dl>
-
-              </div>
-
-          </div>
-          </div>
-        </div>
 
         <hr class="ma00020">
 
         <!-- 增加商品 -->
-        <div class="row pa00200 order_box_txt h_center">
+        <div class="row pa002010 order_box_txt h_center">
 
-          <div class="col-4 col-sm-2 pa_d-14">
-          </div>
-
-          <div class="col-8 col-sm-10 bg522F35_content">
+          <div class="col-12 bg522F35_content">
             <div class="row order_newcommodity">
               <div class="col-12 pa0000">
                 <button type="button" class="new_button btn-secondary btn-lg btn-block " ><h1 class="m-0">增加商品</h1></button>
@@ -453,10 +417,15 @@ $(function() {
         </div>
 
         <hr class="ma052015">
-
+        <!-- 運費-->
+        <div class="row pa00200 order_total_txt h_center">
+          <h3>運費 :＄</h3>
+          <h1>999,999</h1>
+        </div>
         <!-- 訂單總價 -->
         <div class="row pa00200 order_total_txt h_center">
-          <h3>本次訂單總價 :＄</h3><h1>999,999</h1>
+          <h3>本次訂單總價 :＄</h3>
+          <h1>999,999</h1>
         </div>
 
       </div>
@@ -486,11 +455,7 @@ $(function() {
 <!-- 底部導覽列 -->
 <footer class="container py-5" >
  <div class="row justify-content-md-center">
-   <div class="col-md-2 col-xs-12 text-center">
-     <img class="product_pg_bottom_logo pb-2 " src="images/logo_icon.svg" >
-     <small class="d-block mb-3 text-muted">© 2019 by benwon</small>
-   </div>
-   <div class="col-md-4 col-xs-12 text-center">
+   <div class="col-md-4 col-xs-12 pt-3 text-center">
      <thead class="table table-borderless">
        <tr>
          <th scope="col">
@@ -510,6 +475,11 @@ $(function() {
            onmouseout="this.src='images/button/button_icon_3_1.svg'"
            onmouseover="this.src='images/button/button_icon_3_2.svg'"
            src="images/button/button_icon_3_1.svg" >
+         </th>
+         <th scope="col">
+           <div class="col text-center">
+             <small class="d-block mb-3 pt-3 text-muted">© 2019 by benwon</small>
+           </div>
          </th>
        </tr>
      </thead>

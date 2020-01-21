@@ -1,3 +1,10 @@
+/*全站字型*/
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+body {
+  font-family: arial,"noto sans TC","Microsoft JhengHei","微軟正黑體",sans-serif !important;
+}
+
 /*844底版*/
 .product_pg_box_all {
   margin-top: 0px;
@@ -68,7 +75,22 @@
 /* 白底間隔 */
 .product_pg_all {
   color:#ffffff;
-  margin-top:340px;
+  margin-top:255px;
+}
+
+.product_pg_all_1 {
+  color:#ffffff;
+  margin-top:75px;
+}
+
+.product_pg_all_2 {
+  color:#ffffff;
+  margin-top:470px;
+}
+
+.product_pg_all_34 {
+  color:#ffffff;
+  margin-top:355px;
 }
 
 /* 粉色底間隔 */
@@ -76,15 +98,30 @@
   background-image:url(../images/bg.jpg);
 }
 
+
+/*上方logo*/
 .logo_margin {
+  margin-top: -225px;
+}
+
+.logo_margin_234 {
   margin-top: -265px;
 }
 
-/*上方logo*/
-.product_pg_logo {
+.logo_margin_1 {
+  margin-top: -20px;
+}
+
+.product_pg_logo_234 {
   max-width: 120px;
   margin-bottom: 10px;
 }
+
+.product_pg_logo_1 {
+  max-width: 160px;
+  margin-bottom: 10px;
+}
+
 
 /*登入頁*/
 .sign_bg_01 {
@@ -318,10 +355,6 @@ iframe {
   background-color: transparent;
   border:0px;
 }
-
-
-
-
 
 
 /*選品BOX底*/

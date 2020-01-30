@@ -3460,7 +3460,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	line-height: 1;
 	background-color: transparent;
 	border: 1px solid transparent;
-	border-radius: .25rem
+	border-radius: .25rem;
+	z-index: 10;
 }
 .navbar-toggler:focus, .navbar-toggler:hover {
 	text-decoration: none

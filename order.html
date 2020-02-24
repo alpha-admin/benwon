@@ -7,57 +7,21 @@
 
 
 <!-- CSS -->
-<link rel="stylesheet" href="css/bootstrap4-toggle.min.css"></link>
-<link rel="stylesheet" href="/docs/4.2/dist/css/bootstrap.css"></link>
-<link rel="stylesheet" href="/docs/4.2/assets/css/docs.min.css"></link>
-<link rel="stylesheet" href="css/3.3.7_bootstrap.min.css"></link>
-<link rel="stylesheet" href="css/4.3.1_bootstrap.min.css"></link>
-<link rel="stylesheet" href="css/bootstrap-grid.css"></link>
-<link rel="stylesheet" href="css/bootstrap-grid.min.css"></link>
-<link rel="stylesheet" href="css/bootstrap-reboot.css"></link>
-<link rel="stylesheet" href="css/bootstrap-reboot.min.css"></link>
-<link rel="stylesheet" href="css/bootstrap.css"></link>
 <link rel="stylesheet" href="css/bootstrap.min.css"></link>
 <link rel="stylesheet" href="css/benwon.css"></link>
 <!-- CSS -->
 
 <!-- JS -->
-<script src="js/2.0.0/jquery.min.js"></script>
-<script src="js/fontawesome/all.js"></script>
-<script src="js/bootstrap4-toggle.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/2.1.1/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/4.3.1/bootstrap.min.js"></script>
-<script src="js/jquery-3.3.1.slim.min.js"></script>
-<script src="js/3.3.7/bootstrap.min.js"></script>
-<script src="js/2.0.0/jquery.min.js"></script>
+<script src="js/fontawesome/all.js"></script>
 <script src="js/jquery.twzipcode.min.js"></script>
-<script src="js/subtract.js"></script>
-
-<script type="text/javascript">
-$(function() {
-   /* 按下GoTop按鈕時的事件 */
-   $('#gotop').click(function(){
-       $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
-       return false;
-   });
-
-   /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
-   $(window).scroll(function() {
-       if ( $(this).scrollTop() > 200){
-           $('#gotop').fadeIn();
-       } else {
-           $('#gotop').fadeOut();
-       }
-   });
-});
-</script>
+<script src="js/benwon.js"></script>
 <!-- JS -->
-
 
 </head>
 <body>
+
 
 <!-- web -->
 <!-- 回到最上層 -->
@@ -181,7 +145,8 @@ $(function() {
               <div class="col-10 col-sm-7 col-md-6">
                 <div class="checkbox p-0 m-0">
                   <label>
-                    <h4 class="color522F35"><input type="checkbox" value="remember-me" checked="checked">顯示 <c class="font12 colorDC4146">寄送時是否保留訂購人資料</c></h4>
+                    <h4 class="color522F35">
+                      <input class="ma5550" type="checkbox" value="remember-me" checked="checked">顯示 <c class="font12 colorDC4146">寄送時是否保留訂購人資料</c></h4>
                   </label>
                 </div>
               </div>

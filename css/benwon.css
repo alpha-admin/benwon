@@ -41,7 +41,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 2rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 .carousel-indicators {
@@ -74,23 +74,20 @@ body {
 
 /* 白底間隔 */
 .product_pg_all {
-  color:#ffffff;
   margin-top:255px;
 }
 
 .product_pg_all_1 {
-  color:#ffffff;
-  margin-top:75px;
+  height:170px;
+  background-color:#f8f9fa;
 }
 
 .product_pg_all_2 {
-  color:#ffffff;
-  margin-top:470px;
+  margin-top:330px;
 }
 
 .product_pg_all_34 {
-  color:#ffffff;
-  margin-top:355px;
+  margin-top:380px;
 }
 
 /* 粉色底間隔 */
@@ -109,7 +106,11 @@ body {
 }
 
 .logo_margin_1 {
-  margin-top: -20px;
+  margin-top: -44px;
+}
+
+.navbar_margin_d {
+  height: 60px;
 }
 
 .product_pg_logo_234 {
@@ -373,6 +374,9 @@ iframe {
   font-weight: 400;
   margin-bottom:0px;
 }
+
+
+
 
 /*選品BOX內容底圖*/
 .box_bg_xl_02 {
@@ -1118,6 +1122,10 @@ div a {
   margin: 0 0 0 0;
 }
 
+.ma0500 {
+  margin: 0 5px 0 0;
+}
+
 .ma010010 {
   margin: 0 10px 0 10px;
 }
@@ -1132,6 +1140,10 @@ div a {
 
 .ma10101010 {
   margin: 10px 10px 10px 10px;
+}
+
+.ma5550 {
+  margin: 5px 5px 5px 0px;
 }
 
 .all_button {

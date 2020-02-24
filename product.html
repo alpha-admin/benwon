@@ -5,46 +5,18 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title>飯團媽 | 團購、批發、選物</title>
 
+
 <!-- CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css"></link>
 <link rel="stylesheet" href="css/benwon.css"></link>
 <!-- CSS -->
 
 <!-- JS -->
-<script src="js/2.0.0/jquery.min.js"></script>
-<script src="js/fontawesome/all.js"></script>
-<script src="js/bootstrap4-toggle.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/2.1.1/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/4.3.1/bootstrap.min.js"></script>
-<script src="js/jquery-3.3.1.slim.min.js"></script>
-<script src="js/3.3.7/bootstrap.min.js"></script>
-<script src="js/2.0.0/jquery.min.js"></script>
+<script src="js/fontawesome/all.js"></script>
 <script src="js/jquery.twzipcode.min.js"></script>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
-
-
-<script type="text/javascript">
-$(function() {
-   /* 按下GoTop按鈕時的事件 */
-   $('#gotop').click(function(){
-       $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
-       return false;
-   });
-
-   /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
-   $(window).scroll(function() {
-       if ( $(this).scrollTop() > 200){
-           $('#gotop').fadeIn();
-       } else {
-           $('#gotop').fadeOut();
-       }
-   });
-});
-</script>
+<script src="js/benwon.js"></script>
 <!-- JS -->
 
 </head>
@@ -108,9 +80,11 @@ $(function() {
         <a class="nav-link" href="/old_order.html" >歷史訂單</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" >聯絡我們</a>
+        <a class="nav-link" href="/index.html" >聯絡我們</a>
       </li>
     </ul>
+
+    <div class="navbar_margin_d visible-xs" ></div>
 
   </div>
 
@@ -168,7 +142,7 @@ $(function() {
 <div class="container-fluid pink_bottom" >
 
   <!-- logo 234-->
-  <div class="container-fluid logo_margin_234 hidden-xs" >
+  <div class="container-fluid logo_margin_234" >
     <div class="col-12 text-center" >
       <img class="product_pg_logo_234" src="images/logo_pc.svg" >
     </div>
@@ -478,10 +452,8 @@ $(function() {
 <!-- 底部導覽列 -->
 
 
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
 <script th:inline="javascript">
   /*<![CDATA[*/
   Vue.config.devtools = true;

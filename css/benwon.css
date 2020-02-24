@@ -994,6 +994,7 @@ div a {
   line-height:40px;
   transition:all 0.3s;
   text-align: center;
+  color: #ffffff;
 }
 
 .Back_icon:hover {

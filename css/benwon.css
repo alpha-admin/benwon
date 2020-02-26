@@ -83,11 +83,11 @@ body {
 }
 
 .product_pg_all_2 {
-  margin-top:330px;
+  margin-top:340px;
 }
 
 .product_pg_all_34 {
-  margin-top:380px;
+  margin-top:360px;
 }
 
 /* 粉色底間隔 */
@@ -106,9 +106,12 @@ body {
 }
 
 .logo_margin_1 {
-  margin-top: -265px;
+  margin-top: -44px;
 }
 
+.logo_margin_1_1 {
+  margin-top: -92px;
+}
 .navbar_margin_d {
   height: 60px;
 }

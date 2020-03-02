@@ -23,43 +23,45 @@
 <body>
 
 
-<!-- web -->
-<!-- 回到最上層 -->
-<div class="visible-md visible-lg">
-  <a id="gotop" class="gotop_web" href="#">
-     <i class="fa fa-chevron-circle-up gotop"></i>
-  </a>
-</div>
-<!-- 回到最上層 -->
+<div id="shopCartContext">
+  <!-- web -->
+  <!-- 回到最上層 -->
+  <div class="visible-md visible-lg">
+    <a id="gotop" class="gotop_web" href="#">
+       <i class="fa fa-chevron-circle-up gotop"></i>
+    </a>
+  </div>
+  <!-- 回到最上層 -->
 
-<!-- 購物車 -->
-<div class="visible-md visible-lg">
-  <a id="shop_cart_red" class="shop_cart_web" href="#">
-  </a>
-  <a id="shop_cart" class="shop_cart_web" href="#">
-     <i class="fas fa-shopping-cart shop_cart"></i>
-  </a>
-</div>
-<!-- 購物車 -->
+  <!-- 購物車 -->
+  <div class="visible-md visible-lg">
+    <a id="shop_cart_red" class="shop_cart_web"
+    href="/order.html" v-if="shopListSize > 0"></a>
+    <a id="shop_cart" class="shop_cart_web"
+    href="/order.html"> <i class="fas fa-shopping-cart shop_cart"></i>
+    </a>
+  </div>
+  <!-- 購物車 -->
 
-<!-- phone -->
-<!-- 回到最上層 -->
-<div class="hidden-md hidden-lg">
-  <a id="gotop" class="gotop_phone" href="#">
-     <i class="fa fa-chevron-circle-up gotop"></i>
-  </a>
-</div>
-<!-- 回到最上層 -->
+  <!-- phone -->
+  <!-- 回到最上層 -->
+  <div class="hidden-md hidden-lg">
+    <a id="gotop" class="gotop_phone" href="#">
+       <i class="fa fa-chevron-circle-up gotop"></i>
+    </a>
+  </div>
+  <!-- 回到最上層 -->
 
-<!-- 購物車 -->
-<div class="hidden-md hidden-lg">
-  <a id="shop_cart_red" class="shop_cart_phone_red" href="#">
-  </a>
-  <a id="shop_cart" class="shop_cart_phone" href="#">
-     <i class="fas fa-shopping-cart shop_cart"></i>
-  </a>
+  <!-- 購物車 -->
+  <div class="hidden-md hidden-lg">
+    <a id="shop_cart_red" class="shop_cart_phone_red" href="/order.html"
+      v-if="shopListSize > 0"> </a> <a id="shop_cart"
+      class="shop_cart_phone" href="/order.html"> <i
+      class="fas fa-shopping-cart shop_cart"></i>
+    </a>
+  </div>
+  <!-- 購物車 -->
 </div>
-<!-- 購物車 -->
 
 <!-- navbar漢堡選單 -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
@@ -78,9 +80,11 @@
         <a class="nav-link active" href="/old_order.html" >歷史訂單</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" >聯絡我們</a>
+        <a class="nav-link" href="/index.html" >聯絡我們</a>
       </li>
     </ul>
+
+    <div class="navbar_margin_d visible-xs" ></div>
 
   </div>
 
@@ -111,13 +115,17 @@
 <!-- 粉色底 -->
 <div class="container-fluid pink_bottom" >
 
-  <!-- logo 234-->
-  <div class="container-fluid logo_margin_234 hidden-xs" >
-    <div class="col-12 text-center" >
-      <img class="product_pg_logo_234" src="images/logo_pc.svg" >
-    </div>
+<!-- logo 1-->
+<div class="container-fluid logo_margin_1_1 visible-xs">
+</div>
+
+<!-- logo 234-->
+<div class="container-fluid logo_margin_234 hidden-xs">
+  <div class="col-12 text-center" >
+    <img class="product_pg_logo_234" src="images/logo_pc.svg" >
   </div>
-  <!-- logo -->
+</div>
+<!-- logo -->
 
   <!-- 內容 -->
   <div class="row justify-content-center" >
@@ -139,54 +147,54 @@
           <table class="rwd-table table-hover old_order_txt_bc">
             <thead>
               <tr>
-                <th><div class="nav nav-tabs old_order_txt_nav">日期</div></th>
-                <th><div class="nav nav-tabs old_order_txt_nav">單號</div></th>
-                <th><div class="nav nav-tabs old_order_txt_nav">訂購人</div></th>
-                <th><div class="nav nav-tabs old_order_txt_nav">訂單金額</div></th>
-                <th><div class="nav nav-tabs old_order_txt_nav">付款狀態</div></th>
-                <th><div class="nav nav-tabs old_order_txt_nav">出貨狀態</div></th>
-                <th><div class="nav nav-tabs old_order_txt_nav">明細</div></th>
+                <th><div scope="col" lass="nav nav-tabs old_order_txt_nav">日期</div></th>
+                <th><div scope="col" class="nav nav-tabs old_order_txt_nav">單號</div></th>
+                <th><div scope="col" class="nav nav-tabs old_order_txt_nav">訂購人</div></th>
+                <th><div scope="col" class="nav nav-tabs old_order_txt_nav">訂單金額</div></th>
+                <th><div scope="col" class="nav nav-tabs old_order_txt_nav">付款狀態</div></th>
+                <th><div scope="col" class="nav nav-tabs old_order_txt_nav">出貨狀態</div></th>
+                <th><div scope="col" class="nav nav-tabs old_order_txt_nav">明細</div></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td data-th="日期">2019/01/01</td>
-                <td data-th="單號">12345678</td>
-                <td data-th="訂購人">王小明</td>
-                <td data-th="訂單金額">$119,900</td>
-                <td data-th="付款狀態"><span class="badge badge-pill badge-secondary font14">已付款</span></td>
-                <td data-th="出貨狀態"><span class="badge badge-pill badge-secondary font14">已出貨</span></td>
-                <td data-th="明細"><button class="badge badge-pill badge-light font14">下載</button></td>
+                <td scope="row" data-th="日期">2019/01/01</td>
+                <td scope="row" data-th="單號">12345678</td>
+                <td scope="row" data-th="訂購人">王小明</td>
+                <td scope="row" data-th="訂單金額">$119,900</td>
+                <td scope="row" data-th="付款狀態"><span class="badge badge-pill badge-secondary font14">已付款</span></td>
+                <td scope="row" data-th="出貨狀態"><span class="badge badge-pill badge-secondary font14">已出貨</span></td>
+                <td scope="row" data-th="明細"><button class="badge badge-pill badge-light font14">下載</button></td>
               </tr>
 
               <tr>
-                <td data-th="日期">2019/01/01</td>
-                <td data-th="單號">12345678</td>
-                <td data-th="訂購人">王小明</td>
-                <td data-th="訂單金額">$119,900</td>
-                <td data-th="付款狀態"><span class="badge badge-pill badge-danger font14">未付款</span></td>
-                <td data-th="出貨狀態"><span class="badge badge-pill badge-danger font14">未出貨</span></td>
-                <td data-th="明細"><button class="badge badge-pill badge-light font14">下載</button></td>
+                <td scope="row" data-th="日期">2019/01/01</td>
+                <td scope="row" data-th="單號">12345678</td>
+                <td scope="row" data-th="訂購人">王小明</td>
+                <td scope="row" data-th="訂單金額">$119,900</td>
+                <td scope="row" data-th="付款狀態"><span class="badge badge-pill badge-danger font14">未付款</span></td>
+                <td scope="row" data-th="出貨狀態"><span class="badge badge-pill badge-danger font14">未出貨</span></td>
+                <td scope="row" data-th="明細"><button class="badge badge-pill badge-light font14">下載</button></td>
               </tr>
 
               <tr>
-                <td data-th="日期">2019/01/01</td>
-                <td data-th="單號">12345678</td>
-                <td data-th="訂購人">王小明</td>
-                <td data-th="訂單金額">$119,900</td>
-                <td data-th="付款狀態"><span class="badge badge-pill badge-success font14">確認中</span></td>
-                <td data-th="出貨狀態"><span class="badge badge-pill badge-success font14">處理中</span></td>
-                <td data-th="明細"><button class="badge badge-pill badge-light font14">下載</button></td>
+                <td scope="row" data-th="日期">2019/01/01</td>
+                <td scope="row" data-th="單號">12345678</td>
+                <td scope="row" data-th="訂購人">王小明</td>
+                <td scope="row" data-th="訂單金額">$119,900</td>
+                <td scope="row" data-th="付款狀態"><span class="badge badge-pill badge-success font14">確認中</span></td>
+                <td scope="row" data-th="出貨狀態"><span class="badge badge-pill badge-success font14">處理中</span></td>
+                <td scope="row" data-th="明細"><button class="badge badge-pill badge-light font14">下載</button></td>
               </tr>
 
               <tr>
-                <td data-th="日期">2019/01/01</td>
-                <td data-th="單號">12345678</td>
-                <td data-th="訂購人">王小明</td>
-                <td data-th="訂單金額">$119,900</td>
-                <td data-th="付款狀態"><span class="badge badge-pill badge-secondary font14">已付款</span></td>
-                <td data-th="出貨狀態"><span class="badge badge-pill badge-success font14">處理中</span></td>
-                <td data-th="明細"><button class="badge badge-pill badge-light font14">下載</button></td>
+                <td scope="row" data-th="日期">2019/01/01</td>
+                <td scope="row" data-th="單號">12345678</td>
+                <td scope="row" data-th="訂購人">王小明</td>
+                <td scope="row" data-th="訂單金額">$119,900</td>
+                <td scope="row" data-th="付款狀態"><span class="badge badge-pill badge-secondary font14">已付款</span></td>
+                <td scope="row" data-th="出貨狀態"><span class="badge badge-pill badge-success font14">處理中</span></td>
+                <td scope="row" data-th="明細"><button class="badge badge-pill badge-light font14">下載</button></td>
               </tr>
 
             </tbody>
@@ -281,6 +289,36 @@
  </div>
 </footer>
 <!-- 底部導覽列 -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  Vue.config.devtools = true;
+  Vue.config.debug = true;
+
+  var vueShopCart = new Vue({
+    el : '#shopCartContext',
+    data : {
+      shopCart: {},
+      shopListSize: 0
+    },
+    created : function() {
+      var localDataShopCart = localStorage .getItem('localDataShopCart');
+      if (localDataShopCart != null) {
+        var shopCart = JSON.parse(localDataShopCart);
+        this.setShopCart(shopCart);
+      }
+    },
+    methods : {
+      setShopCart: function(shopCart){
+        this.shopListSize = shopCart.shopList.length;
+      }
+    }
+  });
+/*]]>*/
+</script>
 
 
 </body>

@@ -456,6 +456,14 @@ iframe {
   padding: 18px 18px 0px 18px;
 }
 
+.product_box_txt_to {
+  color:#522F35;
+  font-size: 13px;
+  padding: 0px 0px 6px 0px;
+}
+
+
+
 .product_box_txt p {
   text-align: left;
 }
@@ -539,6 +547,10 @@ iframe {
 
 .total_red {
   color: #dc4146;
+}
+
+.total_red2 {
+  color: #af3a4c;
 }
 
 

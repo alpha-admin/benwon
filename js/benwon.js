@@ -60,4 +60,31 @@ $(function() {
 /* +-button */
 
 
+/* copy button */
+
+  function pi_tab_2(id) {
+    var TextRange = document.createRange();
+    TextRange.selectNode(document.getElementById(id));
+    sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(TextRange);
+    document.execCommand("copy");
+    $('i.copy_after').show();
+    $('i.copy_before').hide();
+  }
+
+  function pi_tab_3(id) {
+    var TextRange = document.createRange();
+    TextRange.selectNode(document.getElementById(id));
+    sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(TextRange);
+    document.execCommand("copy");
+    $('i.copy_after').show();
+    $('i.copy_before').hide();
+  }
+
+/* copy button */
+
+
 /* end */

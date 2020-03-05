@@ -6,6 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title>飯團媽 | 團購、批發、選物</title>
 
+<!-- 20200304_整理前台UI顯示與修改文字 -->
 
 <!-- CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css"></link>
@@ -71,8 +72,18 @@
   aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
+  <!-- logo 1-->
+  <div class="container-fluid logo_margin_1 visible-xs" >
+    <div class="col-12 text-center" >
+      <img class="product_pg_logo_1" src="images/logo_phone.svg" >
+    </div>
+  </div>
+  <!-- logo -->
+
   <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
 
+    <div class="navbar_margin_h visible-xs" ></div>
     <ul class="navbar-nav nav-fill">
       <li class="nav-item">
         <a class="nav-link active" href="/index.html" >商品清單</a>
@@ -84,18 +95,9 @@
         <a class="nav-link" href="/index.html" >聯絡我們</a>
       </li>
     </ul>
-
     <div class="navbar_margin_d visible-xs" ></div>
-
   </div>
 
-  <!-- logo 1-->
-  <div class="container-fluid logo_margin_1 visible-xs" >
-    <div class="col-12 text-center" >
-      <img class="product_pg_logo_1" src="images/logo_phone.svg" >
-    </div>
-  </div>
-  <!-- logo -->
 </nav>
 <!-- navbar漢堡選單 -->
 
@@ -144,7 +146,7 @@
           </div>
 
           <div class="modal-footer bo0">
-            <iframe frameborder="0" src="product_box_1.html">
+            <iframe class="bo0" frameborder="0" src="product_box_1.html">
             </iframe>
           </div>
 
@@ -172,18 +174,21 @@
         </div>
 
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+      <a class="carousel-control-prev" href="#carouselExampleControls"
+        role="button" data-slide="prev"> <span
+        class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+        class="sr-only">Previous</span>
       </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+      <a class="carousel-control-next" href="#carouselExampleControls"
+        role="button" data-slide="next"> <span
+        class="carousel-control-next-icon" aria-hidden="true"></span> <span
+        class="sr-only">Next</span>
       </a>
     </div>
     </div>
   </div>
   <!-- 輪播Banner -->
+
 
   <!-- 內容 -->
   <div class="row justify-content-center" >
@@ -195,7 +200,6 @@
 
       <!-- 商品列表 -->
       <div class="row product_txt">
-
         <!-- 1 -->
         <div class="col-md-4 col-sm-6 col-xs-12 pa05205" >
             <div class ="text-center product_pg_title">
@@ -216,15 +220,16 @@
             </div>
             <div class ="text-center box_text_bg_01" >
             <div class ="text-center box_text_bg_02" >
-              <p style="line-height: 25px; margin: 0;">市售價：$
-                <strike style="line-height: 25px; margin: 0;" th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">$9999</strike>
+              <p class ="box_text_bg_03" >市售價：$ <strike
+                th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">9,999</strike>
               </p>
             </div>
             </div>
             <div class ="text-center box_text_bg_01" >
             <div class ="text-center box_text_bg_02" >
-              <p style="line-height: 25px; margin: 0;"
-                th:text="${'庫存數量：' + item.stockQuantity}">庫存數量：9999</p>
+              <p class ="box_text_bg_03" >批發價：$ <a
+                th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">8,999</a>
+              </p>
             </div>
             </div>
         </div>
@@ -251,15 +256,16 @@
             </div>
             <div class ="text-center box_text_bg_01" >
             <div class ="text-center box_text_bg_02" >
-              <p style="line-height: 25px; margin: 0;">市售價：$
-                <strike style="line-height: 25px; margin: 0;" th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">$9999</strike>
+              <p class ="box_text_bg_03" >市售價：$ <strike
+                th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">9,999</strike>
               </p>
             </div>
             </div>
             <div class ="text-center box_text_bg_01" >
             <div class ="text-center box_text_bg_02" >
-              <p style="line-height: 25px; margin: 0;"
-                th:text="${'庫存數量：' + item.stockQuantity}">庫存數量：9999</p>
+              <p class ="box_text_bg_03" >批發價：$ <a
+                th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">8,999</a>
+              </p>
             </div>
             </div>
         </div>
@@ -286,15 +292,16 @@
             </div>
             <div class ="text-center box_text_bg_01" >
             <div class ="text-center box_text_bg_02" >
-              <p style="line-height: 25px; margin: 0;">市售價：$
-                <strike style="line-height: 25px; margin: 0;" th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">$9999</strike>
+              <p class ="box_text_bg_03" >市售價：$ <strike
+                th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">9,999</strike>
               </p>
             </div>
             </div>
             <div class ="text-center box_text_bg_01" >
             <div class ="text-center box_text_bg_02" >
-              <p style="line-height: 25px; margin: 0;"
-                th:text="${'庫存數量：' + item.stockQuantity}">庫存數量：9999</p>
+              <p class ="box_text_bg_03" >批發價：$ <a
+                th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">8,999</a>
+              </p>
             </div>
             </div>
         </div>
@@ -312,8 +319,6 @@
                 <!-- location.href='/product/' +  -->
                 <button type="button"
                 class="product_botton btn-danger btn-lg btn-block"
-                th:data-id="${item.id}"
-                onclick="javascript:this.getAttribute('data-id') + '.html'"
                 data-toggle="modal" data-target="#modalGM">
                 <h1 class="m-0">我要下訂</h1></button>
                 <!-- https://my.oschina.net/u/2312080/blog/2878183 -->
@@ -321,15 +326,16 @@
             </div>
             <div class ="text-center box_text_bg_01" >
             <div class ="text-center box_text_bg_02" >
-              <p style="line-height: 25px; margin: 0;">市售價：$
-                <strike style="line-height: 25px; margin: 0;" th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">$9999</strike>
+              <p class ="box_text_bg_03" >市售價：$ <strike
+                th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">9,999</strike>
               </p>
             </div>
             </div>
             <div class ="text-center box_text_bg_01" >
             <div class ="text-center box_text_bg_02" >
-              <p style="line-height: 25px; margin: 0;"
-                th:text="${'庫存數量：' + item.stockQuantity}">庫存數量：9999</p>
+              <p class ="box_text_bg_03" >批發價：$ <a
+                th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">8,999</a>
+              </p>
             </div>
             </div>
         </div>
@@ -356,15 +362,16 @@
             </div>
             <div class ="text-center box_text_bg_01" >
             <div class ="text-center box_text_bg_02" >
-              <p style="line-height: 25px; margin: 0;">市售價：$
-                <strike style="line-height: 25px; margin: 0;" th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">$9999</strike>
+              <p class ="box_text_bg_03" >市售價：$ <strike
+                th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">9,999</strike>
               </p>
             </div>
             </div>
             <div class ="text-center box_text_bg_01" >
             <div class ="text-center box_text_bg_02" >
-              <p style="line-height: 25px; margin: 0;"
-                th:text="${'庫存數量：' + item.stockQuantity}">庫存數量：9999</p>
+              <p class ="box_text_bg_03" >批發價：$ <a
+                th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">8,999</a>
+              </p>
             </div>
             </div>
         </div>
@@ -391,15 +398,16 @@
             </div>
             <div class ="text-center box_text_bg_01" >
             <div class ="text-center box_text_bg_02" >
-              <p style="line-height: 25px; margin: 0;">市售價：$
-                <strike style="line-height: 25px; margin: 0;" th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">$9999</strike>
+              <p class ="box_text_bg_03" >市售價：$ <strike
+                th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">9,999</strike>
               </p>
             </div>
             </div>
             <div class ="text-center box_text_bg_01" >
             <div class ="text-center box_text_bg_02" >
-              <p style="line-height: 25px; margin: 0;"
-                th:text="${'庫存數量：' + item.stockQuantity}">庫存數量：9999</p>
+              <p class ="box_text_bg_03" >批發價：$ <a
+                th:text="${ #numbers.formatDecimal(item.salePrice, 0, 'COMMA', 0, 'POINT') }">8,999</a>
+              </p>
             </div>
             </div>
         </div>

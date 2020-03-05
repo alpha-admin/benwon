@@ -82,7 +82,7 @@ abbr[data-original-title], abbr[title] {
 	cursor: help;
 	border-bottom: 0;
 	-webkit-text-decoration-skip-ink: none;
-	text-decoration-skip-ink: none
+	text-decoration-skip-ink: none;
 }
 address {
 	margin-bottom: 1rem;
@@ -135,7 +135,7 @@ a:hover {
 }
 a:not([href]):not([tabindex]) {
 	color: inherit;
-	text-decoration: none
+	text-decoration: none;
 }
 a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 	color: inherit;

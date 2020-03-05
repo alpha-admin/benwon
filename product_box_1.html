@@ -24,26 +24,27 @@
 <body>
 
 
+
+
 <div id="shopCartContext">
-<!-- web -->
-<!-- 回到最上層 -->
-<div class="visible-md visible-lg">
-<a id="gotop" class="gotop_web" href="#">
-   <i class="fa fa-chevron-circle-up gotop"></i>
-</a>
-</div>
-<!-- 回到最上層 -->
+  <!-- web -->
+  <!-- 回到最上層 -->
+  <div class="visible-md visible-lg">
+    <a id="gotop" class="gotop_web" href="#">
+       <i class="fa fa-chevron-circle-up gotop"></i>
+    </a>
+  </div>
+  <!-- 回到最上層 -->
 
-<!-- phone -->
-<!-- 回到最上層 -->
-<div class="hidden-md hidden-lg">
-<a id="gotop" class="gotop_phone" href="#">
-   <i class="fa fa-chevron-circle-up gotop"></i>
-</a>
+  <!-- phone -->
+  <!-- 回到最上層 -->
+  <div class="hidden-md hidden-lg">
+    <a id="gotop" class="gotop_phone" href="#">
+       <i class="fa fa-chevron-circle-up gotop"></i>
+    </a>
+  </div>
+  <!-- 回到最上層 -->
 </div>
-<!-- 回到最上層 -->
-</div>
-
 
 <!-- 粉色底 -->
 <div class="container-fluid" >
@@ -56,7 +57,7 @@
 
         <!-- 商品圖輪播 -->
         <div class="row justify-content-center pa00200" >
-          <div id="carouselExampleControls" class="carousel slide carousel-fade " data-ride="carousel" >
+          <div id="carouselExampleControls" class="carousel slide carousel-fade pl-3 pr-3" data-ride="carousel" >
 
               <ol class="carousel-indicators">
                 <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
@@ -100,13 +101,13 @@
         </div>
         <!-- 商品圖輪播 -->
 
-        <div class="row justify-content-center" >
+        <div class="row justify-content-center pl-3 pr-3" >
         <!-- 訂單明細 -->
         <div class="col-12 pa200200" >
           <div class ="text-center">
 
-            <div class="">
-              <div>
+            <div>
+              <div >
               <ul class="nav nav-tabs" id="ol_tab" role="tab">
                 <li class="nav-item">
                   <h3 class="nav-link not_s_tbs active" data-toggle="tab" href="#ol_tab_1">訂單明細</h3>
@@ -141,7 +142,7 @@
                       <dd class="col-sm-10">
                         <form>
 
-                          <div class="form-group pb-3">
+                          <div class="form-group">
                             <label for="exampleInputEmail1">松露迷迭香</label>
                             <div class="product_box_txt_to total_red2">批發價：<a>$8,999</a> / 包，<a>庫存：<a>9,999</a> / 包</a></div>
                             <div class="input-group">
@@ -281,7 +282,12 @@
                 </div>
                   </div>
                 <div class="tab-pane fade" id="pi_tab_2">
-                  <div class="product_box_txt">
+                  <div class="text-right pi_tab_ma">
+                    <a href="javascript:void(0);" onclick="pi_tab_2('pi_tab_2_1')" class="pi_tab btn-danger">
+                    複製內容
+                    </a>
+                  </div>
+                  <div class="product_box_txt" id="pi_tab_2_1">
                     <p>
                       【原來洋芋片也可以極致奢華！】英國時尚party唯一指名～倫敦經濟日報報導，洋芋片新革命！<br />
                       <br />
@@ -309,7 +315,12 @@
                   </div>
                 </div>
                 <div class="tab-pane fade" id="pi_tab_3">
-                  <div class="product_box_txt">
+                  <div class="text-right pi_tab_ma">
+                    <a href="javascript:void(0);" onclick="pi_tab_3('pi_tab_3_1')" class="pi_tab btn-danger">
+                    複製內容
+                    </a>
+                  </div>
+                  <div class="product_box_txt" id="pi_tab_3_1">
                     <p>
                       成分<br />
                       <br />
